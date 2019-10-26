@@ -1,3 +1,5 @@
+// Code for the Login Page.
+
 package com.example.lokesh.keepmemanaged;
 
 import android.content.Context;
@@ -32,9 +34,11 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-        Button login=(Button)findViewById(R.id.login);
-        FirebaseUser firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
+        Button login=(Button)findViewById(R.id.login);  // Creating login button
+        FirebaseUser firebaseUser=FirebaseAuth.getInstance().getCurrentUser();  
 //        Toast.makeText(Login.this,firebaseUser.getEmail()+"",Toast.LENGTH_LONG).show();
+        
+        // If user exists verify details
         if (firebaseUser!=null)
         {
             e=firebaseUser.getEmail();
@@ -48,6 +52,7 @@ public class Login extends AppCompatActivity {
 //                    input += emai.charAt(i);
 //                }
 //            }
+            // Comparing Email entered and one in the database.
             for(i=0;i<e.length();i++)
             {
                 if((emai.charAt(i)>='a' && emai.charAt(i)<='z')|| (emai.charAt(i)>='A' && emai.charAt(i)<='Z') || (emai.charAt(i)>='0' && emai.charAt(i)<='9')) {
